@@ -1,11 +1,12 @@
-kind: RoleBinding
+kind: ClusterRoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
   name: crd-controller
 subjects:
 - kind: ServiceAccount
   name: crd-controller
+  namespace: default
 roleRef:
-  kind: Role
-  name: crd-controller
+  kind: ClusterRole
+  name: cluster-admin
   apiGroup: rbac.authorization.k8s.io
